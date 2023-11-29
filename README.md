@@ -19,8 +19,16 @@ my project name is Wordle, its a word guessing game, i picked this game project 
    4.1 if the player's guessed the correct word play congratulations and shake the screen and play flying baloons or change the screen color 
 
 6. user stories 
-  6.1 i need to see the  words in clear color
-  6.2 i need to know when to reset
-need to know if i win or loss
-  6.3 i need to see screen is shaking and congrating for my winnings
+   As A User I Want To
+  6.1 see the  words in clear color
+  6.2 know when to reset the game and know if i win or loss
+  6.3 see the screen is shaking and congrating for my winnings
+  6.4 see line goes true the words that i corrected showing that i guessed the correct word
+  6.5 see hint button to click when i am stuck
+
+  # wireframes screenshoot
+
+![Alt text](img/wireframe.png)
+
+
 
