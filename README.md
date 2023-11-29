@@ -17,3 +17,4 @@ my project name is Wordle, its a word guessing game, i picked this game project 
 
 5. display the result at the end
    4.1 if the player's guessed the correct word play congratulations and shake the screen and play flying baloons or change the screen color 
+
