@@ -1,3 +1,18 @@
+
+//grab the html elements
+const wordEl = [...document.querySelectorAll('#rows> div')];
+const playAgainBtn = document.querySelector('button');
+
+// const the hidden words 
+const hiddenWords = ['berry', 'orange', 'panana', 'lime',
+'kiwi', 'apple', 'grape', 'mango',]
+
+const randomIndex = Math.floor(Math.random() * hiddenWords.length);
+const targetWords = hiddenWords[randomIndex].toLocaleUpperCase();
+let guessedWord = Array(targetWords.length).fill('-----')
+let raimanningAttempts = 5;
+
+
 // get the elements from the HTMl by getelementbyId
 
 // define the list of the words of the Game 

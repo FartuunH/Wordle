@@ -19,6 +19,8 @@
   --clr-5: #acbda1;
 }
 
+
+
 /* add the body to be central and baclground 
 color anf the font size */
 
@@ -34,6 +36,7 @@ place-content: center;
 /* header */
 
 h2{
+    position: relative;
     color: beige;
     background-color: var(--clr-4);
     display: flex;
@@ -43,27 +46,35 @@ h2{
     border-color: #209085 transparent transparent;
     border-style: solid;
     border-radius: 10rem;
+    overflow: hidden;
 
 
 }
 
-
-
 /* section of the rows and culomns */
-
-#rows{
+ #rows{
     margin: 20px;
-    background-color: var(--clr-1);
-    border-radius: 0.5rem;
     height: 80vh;
     width: 450px;
+    display: grid;
+    grid-template-columns: repeat(5, 15vmin);
+    grid-template-rows: repeat(6, 13vmin);
+    flex-wrap: wrap;
+
     aspect-ratio: 1 / 1.5;
     position: relative;
 
-}
+} 
+
+  #rows>div {
+    flex: 1;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+  }
 /* this is the background glow */
 #rows::before,
-#rowa::after{
+#rows::after{
     content: "";
     position: absolute;
     inset: -.5rem;
@@ -99,7 +110,7 @@ button{
     border-color: #209085 transparent transparent;
     border-style: solid;
     border-radius: 5rem;
-    justify-content: center;
+    justify-content: center
 }
 
 
