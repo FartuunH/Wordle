@@ -72,11 +72,12 @@ document.addEventListener("DOMContentLoaded", () => {
         wordCount += 1;
 
         if(currentWord === word) {
-            window.alert("congratulations!");
+            window.alert("Congratulations! You guessed the word.");
         }
 
         if(guesses.length === 6) {
-            window.alert(`sorry you have no more guesses! the word is ${word}`);
+           
+         window.alert(`Sorry, you have no more guesses! The word is ${word} \n\ refresh the page to play again`);
         }
 
         guesses.push([])

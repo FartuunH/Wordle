@@ -3,21 +3,21 @@
     margin: 0px;
 } 
 
-/* @property --gradient-angle {
+ @property --gradient-angle {
     syntax: "<angle>";
     initial-value: 0deg;
     inherits: false;
-} */
+} 
 
 /* colors */
-/* :root {
+:root {
   --clr-1: #052b2f;
   --clr-2: #0e4b50;
   --clr-3: #380735;
   --clr-4: rgb(32, 17, 110);
   --clr-5: #bda1b9;
    --clr-6: #714a79;
-} */
+}
 /* --clr-4: #209085; */
 /* --clr-3: #073438; */
 /* --clr-5: #acbda1; */
@@ -32,27 +32,34 @@
 color anf the font size */
 
 body{
-height: 70vh; 
+height: 100%; 
 font-weight: bold;
 font-family: Arial, Helvetica, sans-serif;
-background-color: black;
+background-color: rgb(31, 30, 30);
+
+
 }
 
 
 /* header */
 
 h2{
-    position: relative;
-    color: beige;
+    color: #15f4ee;
     text-align: center;
     letter-spacing: 2vmin;
     font-size: 38px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     
+    
 
 
 }
+.hr{
+    color: #380735;
+    background-color: #380735;
+}
+ 
 
 #displayboard{
     display: flex;
@@ -71,7 +78,7 @@ h2{
 }
 
 .square{
-    border: 2px solid darkslategray;
+    border: 2px solid rgb(13, 14, 14);
     min-width: 60px;
     min-height: 60px;
     font-size: 50px;
@@ -81,6 +88,11 @@ h2{
     display: flex;
     justify-content: center;
     align-items: center;
+
+  
+}
+.square:hover{
+    
 }
 
 #content-of-all{
@@ -101,12 +113,18 @@ h2{
     font-family: inherit;
     border: 0;
     cursor: pointer;
-    background-color: gray;
+    background-color: rgb(6, 6, 6);
     flex-grow: 1;
     text-transform: uppercase;
-    margin-right: 1px;
+    margin: 2px;
     border-radius: 8px;
     user-select: none;
+    border: 2px solid #15f4ee;
+    color: aqua;
+    transition: 1.5s;
+}
+.the-rows button:hover{
+    box-shadow: 0 5px 5px 0 #15f4ee, 0 5px 50px 0 #15f4ee;
 }
 .the-rows button.w-button{
     flex-grow: 1.5;
@@ -114,45 +132,9 @@ h2{
 
 
 
- /* #rows{
-    height: 72vh;
-    width: 360x;
-    margin: auto;
-    /* display: grid; */
-    /* grid-template-columns: repeat(5, 13vmin);
-    grid-template-rows: repeat(6, 13vmin); */
-    /* display: flex;
-    flex-wrap: wrap;
-    background-color: black;
-
-    aspect-ratio: 1 / 1.5;
-    position: relative;
-
-     /* */
-
-
-/* .box{
-    /* flex: 1; */
-    /* padding: 0;
-    box-sizing: border-box;
-    border: 2px solid beige;
-    width: 60px;
-    height: 60px;
-    margin: 2.5px; */
-    
-    /* text */
-    /* color:burlywood ;
-    font-size: 36px;
-    font-weight: bold;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-
-  }  */
-
   
-/* this is the background glow */
-/* body::before,
+this is the background glow 
+body::before,
 body::after{
     content: "";
     position: absolute;
@@ -175,22 +157,12 @@ body::after{
 @keyframes rotation {
     0% { --gradient-angle:0deg; }
     100% { --gradient-angle: 360deg; }
-} */
+} 
 
 
-/* button{
-    color: black;
-    background-color: var(--clr-6);
-    display: flex;
-    align-content: center;
-    place-content: center;
-    align-items: center;
-    letter-spacing: 1.5vmin;
-    font-size: 5vmin;
-    /* border-color: #209085 transparent transparent; */
-    /* border-radius: 5rem;
-    justify-content: center
-} */ 
+
+
+ 
 
 
 /* responsive styling for smaller screen */
@@ -201,12 +173,5 @@ body::after{
       }
     }  */
 
-/* make the board squere and give the color 
-and background color 
 
-give the divs hover and adjust the size for words to be filter
-
-
-make the play again button and give some hover and border redius
- */
 
