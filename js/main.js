@@ -1,65 +1,112 @@
+document.addEventListener("DOMContentLoaded", () => {
+    createSquares();
 
-//grab the html elements
-const wordEl = [...document.querySelectorAll('#rows> div')];
-const playAgainBtn = document.querySelector('button');
+    let guesses = [[]];
+    let space = 1;
 
-// const the hidden words 
-const hiddenWords = ['berry', 'orange', 'panana', 'lime',
-'kiwi', 'apple', 'grape', 'mango',]
+    let word = "apple"
+    let wordCount = 0;
 
-const randomIndex = Math.floor(Math.random() * hiddenWords.length);
-const targetWords = hiddenWords[randomIndex].toLocaleUpperCase();
-let guessedWord = Array(targetWords.length).fill('-----')
-let raimanningAttempts = 5;
+    const rows = document.querySelectorAll('.the-rows button')
 
 
-// get the elements from the HTMl by getelementbyId
+    function getWordArr() {
+        const numberOfGuessed = guesses.length;
+        return guesses[numberOfGuessed - 1]
+    }
 
-// define the list of the words of the Game 
+    function updateGuessed(letter) {
+        const currentArr = getWordArr();
 
+        if(currentArr && currentArr.length <5){
+            currentArr.push(letter)
 
-// let the player know how many attempts they can 
-// play at once 
+            const SpaceEl = document.getElementById(String(space));
+            space = space + 1;
 
+            SpaceEl.textContent = letter;
+        }
 
-// const to store the game state
+    }
+    
+    function getTileColor(letter, index) {
+        const isCorrectL = word.includes(letter)
 
-// select or bulid how to select random Words 
+        if(!isCorrectL ){
+            return "rgb(58, 58, 60)"
+        }
 
+        const letterInThatP = word.charAt(index)
+        const isCorrectP = letter === letterInThatP
 
-// bulid the underscores or the hidden part of the
-// game so the player can guess
-
-// build the play button again to reset  the game 
-
-
-// function to for the random Number
-
-
-// function for the current word state 
-
-
-// functin to display don't give message 
-
-// function to look if the player guess was correct 
-
-
-// function to look if the player loss the guess 
-// or attemp is Ended 
-
-// function to end the game if the condition is meed
-// if the player has won or has run out of attempts
-
-// function to congratulate the player
+        if(isCorrectP) {
+            return "rgb(83, 141, 78)";
+        }
+        return "rgb(181, 159, 59)"
+    }
 
 
+    function submitWord() {
+        const currentArr = getWordArr()
+        if(currentArr.length !== 5 ){
+            window.alert("word must be 5 letter")
+        }
+
+        const currentWord = currentArr.join('')
+
+        const firstLetterId = wordCount * 5 + 1;
+        const interval = 200;
+        currentArr.forEach((letter, index) => {
+            setTimeout(() => {
+                const tileColor = getTileColor(letter, index)
+
+                const letterId = firstLetterId + index;
+                const letterEl = document.getElementById(letterId);
+                letterEl.classList.add("animate__flipInX");
+                letterEl.style =`background-color:${tileColor};border-color:${tileColor}`;
 
 
+            },interval * index)
+        })
+
+        wordCount += 1;
+
+        if(currentWord === word) {
+            window.alert("congratulations!");
+        }
+
+        if(guesses.length === 6) {
+            window.alert(`sorry you have no more guesses! the word is ${word}`);
+        }
+
+        guesses.push([])
+
+    }
 
 
+    function createSquares() {
+        const gameBoard = document.getElementById("keyboard-board")
+        for (let index = 0; index < 30; index++) {
+           let square = document.createElement("div")
+           square.classList.add("square")
+           square.classList.add("animate_animated")
+           square.setAttribute("id", index + 1)
+           gameBoard.appendChild(square);
+            
+        }
+    }
 
+    for (let i = 0; i < rows.length; i++) {
+        rows[i].onclick = ({ target }) => {
+            const letter =  target.getAttribute("data-key")
 
+            if(letter === 'Enter'){
+                submitWord()
+                return;
+            }
 
+            updateGuessed(letter);
 
-
-
+        };   
+    }
+})

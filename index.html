@@ -11,51 +11,66 @@
 <body>
 
     <!-- header to display the current status -->
-    <div class="header"><h2>Guess The Words </h2></div>
+    <div class="header"><h2>WORDLE </h2></div>
+    <hr>
+    <div id="displayboard">
 
-    <!-- empty divs for the rows-->
-    <section id="rows">
-        <!-- row 5 -->
-        <div id="CU0R5"></div>
-        <div id="CU1R5"></div>
-        <div id="CU2R5"></div>
-        <div id="CU3R5"></div>
-        <div id="CU4R5"></div>
-        <!-- row 4 -->
-        <div id="CU0R4"></div>
-        <div id="CU1R4"></div>
-        <div id="CU2R4"></div>
-        <div id="CU3R4"></div>
-        <div id="CU4R4"></div>
-        <!-- row 3 -->
-        <div id="CU0R3"></div>
-        <div id="CU1R3"></div>
-        <div id="CU2R3"></div>
-        <div id="CU3R3"></div>
-        <div id="CU4R3"></div>
-        <!-- row 2 -->
-        <div id="CU0R2"></div>
-        <div id="CU1R2"></div>
-        <div id="CU2R2"></div>
-        <div id="CU3R2"></div>
-        <div id="CU4R2"></div>
-        <!-- row 1 -->
-        <div id="CU0R1"></div>
-        <div id="CU1R1"></div>
-        <div id="CU2R1"></div>
-        <div id="CU3R1"></div>
-        <div id="CU4R1"></div>
-        <!-- row 0 -->
-        <div id="CU0R0"></div>
-        <div id="CU1R0"></div>
-        <div id="CU2R0"></div>
-        <div id="CU3R0"></div> 
-        <div id="CU4R0"></div> 
-    </section>
+   
+        <div id="keyboard-board"></div>
+    </div>
+    <div id="content-of-all">
+        <div class="the-rows">
+            <button data-key="q">q</button>
+            <button data-key="w">w</button>
+            <button data-key="e">e</button>
+            <button data-key="r">r</button>
+            <button data-key="t">t</button>
+            <button data-key="y">y</button>
+            <button data-key="u">u</button>
+            <button data-key="i">i</button>
+            <button data-key="o">o</button>
+            <button data-key="p">p</button>
+        </div>
+        <div class="the-rows">
+            <div data-key="spacer"></div>
+            <button data-key="a">a</button>
+            <button data-key="s">s</button>
+            <button data-key="d">d</button>
+            <button data-key="f">f</button>
+            <button data-key="g">g</button>
+            <button data-key="h">h</button>
+            <button data-key="j">j</button>
+            <button data-key="k">k</button>
+            <button data-key="l">l</button>
+            <div data-key="spacer"></div>
+
+        </div>
+        <div class="the-rows">
+            <button data-key="Enter" class="w-button">Enter</button>
+            <button data-key="z">z</button>
+            <button data-key="x">x</button>
+            <button data-key="c">c</button>
+            <button data-key="v">v</button>
+            <button data-key="b">b</button>
+            <button data-key="n">n</button>
+            <button data-key="m">m</button>
+            <button class="del" class="d-button">Del</button>
+        </div>
+</div>
+
+
+   
+</div>
 
    <!-- play again button -->
-    <button>Play Again</button>
-   </div>
+    <!-- <button>Play Again</button>
+   </div> -->
 
+
+   <!-- notes  -->
+   <!-- add choose button to pick type of words -->
+
+   <!-- make choseed words like fruits veggies foods cars songs -->
+     <!-- make it drop dow to chose colors to pick -->
 </body>
 </html>
