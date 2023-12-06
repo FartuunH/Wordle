@@ -1,6 +1,7 @@
  *{
     padding:0 ;
-    margin: 0px;
+    margin: 0;
+    box-sizing: border-box;
 } 
 
  @property --gradient-angle {
@@ -18,25 +19,14 @@
   --clr-5: #bda1b9;
    --clr-6: #714a79;
 }
-/* --clr-4: #209085; */
-/* --clr-3: #073438; */
-/* --clr-5: #acbda1; */
 
-
-
-  
-
-
-
-/* add the body to be central and baclground 
-color anf the font size */
 
 body{
-height: 100%; 
+height: 100vh; 
 font-weight: bold;
 font-family: Arial, Helvetica, sans-serif;
 background-color: rgb(31, 30, 30);
-
+overflow-x: hidden;
 
 }
 
@@ -46,7 +36,7 @@ background-color: rgb(31, 30, 30);
     color: #15f4ee;
     text-align: center;
     letter-spacing: 2vmin;
-    font-size: 38px;
+    font-size: 3vmax;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     
@@ -71,11 +61,58 @@ background-color: rgb(31, 30, 30);
 
 #keyboard-board{
     display: grid;
-    grid-template-columns: repeat(5, auto);
-    grid-gap: 5px;
+    grid-template-columns: repeat(5, minmax(0, 1fr));    grid-gap: 5px;
     padding: 10px;
     box-sizing: border-box;
 }
+
+#result-message {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+    color: #fff;
+    border-radius: 8px;
+}
+#result-message.animate__animated {
+    animation-duration: 1s;
+}
+
+keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+#result-message.animate__animated.animate__fadeIn {
+    animation-name: fadeIn;
+    animation-name: fadeout;
+}
+
+#new-game-button {
+    background-color: #4CAF50;
+    color: white; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    margin-top: 10px; 
+}
+
+#new-game-button:hover {
+    background-color: #45a049; 
+}
+
+
+
+
+
+
+
+
 
 .square{
     border: 2px solid rgb(13, 14, 14);
@@ -163,8 +200,8 @@ body::after{
 /* responsive styling for smaller screen */
 
 @media (max-width: 600px) {
-      body {
-        flex: 100%;
+      .the-rows {
+        width: 100%;
       }
     }  
 

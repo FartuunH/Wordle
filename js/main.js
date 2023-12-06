@@ -3,11 +3,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let guesses = [[]];
     let space = 1;
-
-    let word = "apple"
+    
     let wordCount = 0;
+    let gameIsActive = true;
+
+    const words = ["apple", "orange", "mango", "banana", "lemon", "berry", "grape"];
+    let word = getRandomWord()
+    
+    const newGameButton = document.getElementById("new-game-button"); // Added reference to the button
+
 
     const rows = document.querySelectorAll('.the-rows button')
+     
+     function getRandomWord() {
+        return words[Math.floor(Math.random() * words.length)];
+    }
 
 
     function getWordArr() {
@@ -53,10 +63,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     function submitWord() {
+        if (!gameIsActive) {
+            return; 
+        }
         const currentArr = getWordArr()
+        const resultMessageElement = document.getElementById("result-message");
+
+
         if(currentArr.length !== 5 ){
-            window.alert("word must be 5 letter")
-           
+            resultMessageElement.textContent = "Word must be 5 letters";
+            resultMessageElement.classList.add("animate__animated", "animate__fadeIn");
+            
+            setTimeout(() => {
+                resultMessageElement.textContent = "";
+                resultMessageElement.classList.remove("animate__animated", "animate__fadeIn");
+            }, 8000);
+            return;  
 
         }
 
@@ -79,14 +101,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
         wordCount += 1;
 
+
         if(currentWord === word) {
-            window.alert("Congratulations! You guessed the word.");
+            resultMessageElement.textContent = "Congratulations! You guessed the word.";
+            gameIsActive = false;
+
         }
 
-        if(guesses.length === 6) {
+        else if(guesses.length === 6) {
            
-         window.alert(`Sorry, you have no more guesses! The word is ${word} \n\ refresh the page to play again`);
+            resultMessageElement.textContent = `Sorry, you have no more guesses! The word is ${word}. Refresh the page to play again.`;
+            gameIsActive = false;
         }
+        resultMessageElement.classList.add("animate__animated", "animate__fadeIn");
+
+
+        setTimeout(() => {
+            resultMessageElement.textContent = "";
+            resultMessageElement.classList.remove("animate__animated", "animate__fadeIn");
+        }, 8000);
 
         guesses.push([])
 
@@ -116,9 +149,62 @@ document.addEventListener("DOMContentLoaded", () => {
                 submitWord()
                 return;
             }
+            if (letter === 'del') {
+                deleteLetter();
+                return;
+            }
 
             updateGuessed(letter);
 
         };   
+    }
+
+    function deleteLetter() {
+        const currentArr = getWordArr();
+    
+        if (currentArr && currentArr.length > 0) {
+            const lastLetter = currentArr.pop();
+            const spaceEl = document.getElementById(String(space - 1));
+            space = space - 1;
+            spaceEl.textContent = '';
+        }
+    }
+
+    function resetGame() {
+        // Reset all game variables
+        guesses = [[]];
+        space = 1;
+        word = getRandomWord();
+        wordCount = 0;
+        gameIsActive = true;
+
+        // Clear the board and result message
+        clearBoard();
+        resultMessageElement.textContent = "";
+
+        // Enable letter buttons
+        enableLetterButtons();
+    }
+
+    // Add event listener for the "New Game" button
+    newGameButton.addEventListener("click", resetGame);
+
+    // ... (previous code)
+
+    function clearBoard() {
+        // Clear the letters on the board
+        for (let index = 1; index <= 30; index++) {
+            const letterEl = document.getElementById(index);
+            letterEl.textContent = "";
+            letterEl.style = ""; // Clear styles
+            letterEl.classList.remove("animate__flipInX");
+        }
+    }
+
+    function enableLetterButtons() {
+        // Enable letter buttons for a new game
+        for (let i = 0; i < rows.length; i++) {
+            rows[i].disabled = false;
+        }
     }
     })
