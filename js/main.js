@@ -26,6 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function updateGuessed(letter) {
+        if (!gameIsActive) {
+            return; 
+        }
        
         const currentArr = getWordArr();
 
