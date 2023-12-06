@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let wordCount = 0;
     let gameIsActive = true;
 
-    const words = ["apple", "orange", "mango", "banana", "lemon", "berry", "grape"];
+    const words = ["apple", "mango",  "lemon", "berry", "grape"];
     let word = getRandomWord()
     
     const newGameButton = document.getElementById("new-game-button"); // Added reference to the button
@@ -178,21 +178,15 @@ document.addEventListener("DOMContentLoaded", () => {
         wordCount = 0;
         gameIsActive = true;
 
-        // Clear the board and result message
         clearBoard();
-        resultMessageElement.textContent = "";
 
-        // Enable letter buttons
         enableLetterButtons();
     }
 
-    // Add event listener for the "New Game" button
     newGameButton.addEventListener("click", resetGame);
 
-    // ... (previous code)
 
     function clearBoard() {
-        // Clear the letters on the board
         for (let index = 1; index <= 30; index++) {
             const letterEl = document.getElementById(index);
             letterEl.textContent = "";
@@ -207,4 +201,5 @@ document.addEventListener("DOMContentLoaded", () => {
             rows[i].disabled = false;
         }
     }
+    
     })
