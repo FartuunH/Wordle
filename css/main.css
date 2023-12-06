@@ -230,10 +230,15 @@ body::after{
 } 
 
 @media (max-width: 600px) {
-      .the-rows {
+      .the-rows  {
         width: 100%;
       }
+      .the-rows button {
+        height: 80px; 
+        font-size: 16px; 
+
     }  
+}
 
     body::before {
         content: '';
@@ -260,6 +265,28 @@ body::after{
             transform: translateX(-50%) scale(1);
         }
     }
+
+    .balloon {
+        position: absolute;
+        width: 60px;
+        height: 80px;
+        background-color: #ff69b4; 
+        border-radius: 50%;
+        animation-fill-mode: forwards;
+    }
+    
+    @keyframes balloonRise {
+        to {
+            transform: translateY(-100vh);
+        }
+    }
+    body.game-over {
+        background-color: orange;
+        transition: background-color 1s ease;
+    }
+
+   
+    
     
 
 

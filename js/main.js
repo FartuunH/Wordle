@@ -64,6 +64,22 @@ document.addEventListener("DOMContentLoaded", () => {
         return "rgb(181, 159, 59)"
     }
 
+    function celebrate() {
+        for (let i = 0; i < 10; i++) {
+            const balloon = document.createElement("div");
+            balloon.classList.add("balloon");
+            balloon.style.left = `${Math.random() * 100}vw`;
+            document.body.appendChild(balloon);
+        }
+
+        const balloons = document.querySelectorAll(".balloon");
+        balloons.forEach((balloon) => {
+            balloon.style.animationDuration = `${Math.random() * 2 + 1}s`;
+            balloon.style.animationTimingFunction = `cubic-bezier(${Math.random()}, ${Math.random()}, ${Math.random()}, ${Math.random()})`;
+            balloon.style.animationName = "balloonRise";
+        });
+    }
+
 
     function submitWord() {
         if (!gameIsActive) {
@@ -71,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         const currentArr = getWordArr()
         const resultMessageElement = document.getElementById("result-message");
-
+        const bodyElement = document.body;
 
         if(currentArr.length !== 5 ){
             resultMessageElement.textContent = "Word must be 5 letters";
@@ -108,6 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if(currentWord === word) {
             resultMessageElement.textContent = "Congratulations! You guessed the word.";
             gameIsActive = false;
+            celebrate(); 
 
         }
 
@@ -115,6 +132,10 @@ document.addEventListener("DOMContentLoaded", () => {
            
             resultMessageElement.textContent = `Sorry, you have no more guesses! The word is ${word}. Refresh the page to play again.`;
             gameIsActive = false;
+
+            bodyElement.classList.add("game-over");
+
+
         }
         resultMessageElement.classList.add("animate__animated", "animate__fadeIn");
 
@@ -174,7 +195,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function resetGame() {
-        // Reset all game variables
         guesses = [[]];
         space = 1;
         word = getRandomWord();
@@ -183,7 +203,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         clearBoard();
 
-        enableLetterButtons();
+        
+        resultMessageElement.textContent = "";
+        bodyElement.classList.remove("game-over");
+
+         enableLetterButtons();
     }
 
     newGameButton.addEventListener("click", resetGame);
@@ -199,7 +223,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function enableLetterButtons() {
-        // Enable letter buttons for a new game
         for (let i = 0; i < rows.length; i++) {
             rows[i].disabled = false;
         }
