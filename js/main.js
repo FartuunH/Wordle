@@ -18,13 +18,15 @@ document.addEventListener("DOMContentLoaded", () => {
     function updateGuessed(letter) {
         const currentArr = getWordArr();
 
-        if(currentArr && currentArr.length <5){
+        if(currentArr && currentArr.length < 5){
             currentArr.push(letter)
 
             const SpaceEl = document.getElementById(String(space));
             space = space + 1;
 
             SpaceEl.textContent = letter;
+
+            
         }
 
     }
@@ -50,6 +52,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const currentArr = getWordArr()
         if(currentArr.length !== 5 ){
             window.alert("word must be 5 letter")
+            space += 1;
+            return;
+
         }
 
         const currentWord = currentArr.join('')
