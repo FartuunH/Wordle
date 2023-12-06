@@ -16,7 +16,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function updateGuessed(letter) {
+       
         const currentArr = getWordArr();
+
+        
 
         if(currentArr && currentArr.length < 5){
             currentArr.push(letter)
@@ -28,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             
         }
+    
 
     }
     
@@ -52,8 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const currentArr = getWordArr()
         if(currentArr.length !== 5 ){
             window.alert("word must be 5 letter")
-            space += 1;
-            return;
+           
 
         }
 
@@ -100,11 +103,14 @@ document.addEventListener("DOMContentLoaded", () => {
            gameBoard.appendChild(square);
             
         }
+       
     }
 
     for (let i = 0; i < rows.length; i++) {
         rows[i].onclick = ({ target }) => {
             const letter =  target.getAttribute("data-key")
+            
+
 
             if(letter === 'Enter'){
                 submitWord()
@@ -115,4 +121,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
         };   
     }
-})
+    })
