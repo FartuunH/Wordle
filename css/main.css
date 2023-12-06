@@ -120,7 +120,7 @@ keyframes fadeIn {
 }
 
 #new-game-button {
-    background-color: #4CAF50;
+    background-color: #0a021c;
     color: white; 
     padding: 10px 20px; 
     font-size: 16px; 
@@ -134,11 +134,12 @@ keyframes fadeIn {
     transform: translateY(-50%);
     top: 94%;
     right: 80%;
+    
 }
 
 #new-game-button:hover {
-    background-color: #c3d3c5; 
-    color: black;
+    background-color: #401e8a; 
+    color: rgb(236, 233, 233);
     transition: ease-in-out;
 }
 
@@ -238,9 +239,9 @@ body::after{
         transform: translateX(-50%);
         width: 150px;
         height: 150px;
-        background: radial-gradient(circle, transparent 50%, #ff6600 70%);
+        background: radial-gradient(circle, transparent 50%, #482379 70%);
         border-radius: 50%;
-        animation: flames 2s infinite;
+        animation: flames 3.5s infinite;
         z-index: 9999;
     }
     
