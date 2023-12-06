@@ -11,8 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     function getWordArr() {
-        const numberOfGuessed = guesses.length;
-        return guesses[numberOfGuessed - 1]
+        const Guessed = guesses.length;
+        return guesses[Guessed - 1]
     }
 
     function updateGuessed(letter) {

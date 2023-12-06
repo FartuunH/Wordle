@@ -42,8 +42,7 @@ background-color: rgb(31, 30, 30);
 
 
 /* header */
-
-h2{
+.header{
     color: #15f4ee;
     text-align: center;
     letter-spacing: 2vmin;
@@ -55,9 +54,10 @@ h2{
 
 
 }
-.hr{
+.header hr{
     color: #380735;
     background-color: #380735;
+
 }
  
 
@@ -160,18 +160,13 @@ body::after{
 } 
 
 
-
-
- 
-
-
 /* responsive styling for smaller screen */
 
-/* @media (max-width: 600px) {
+@media (max-width: 600px) {
       body {
         flex: 100%;
       }
-    }  */
+    }  
 
 
 

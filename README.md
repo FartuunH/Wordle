@@ -30,5 +30,14 @@ my project name is Wordle, its a word guessing game, i picked this game project 
 
 ![Alt text](img/wireframe.png)
 
+technologies used 
+html
+css
+javascript
+
+
+here is my link to the page
+https://fartuunh.github.io/Wordle/
+
 
 
