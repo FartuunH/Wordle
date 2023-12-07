@@ -27,3 +27,5 @@ https://fartuunh.github.io/Wordle/
 
 
 
+## screenshots of the game
+![Alt text](<img/Screen Shot 2023-12-07 at 8.06.28 AM 1.png>)
